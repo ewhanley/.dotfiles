@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME=""
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -127,9 +127,8 @@ alias gh="history | grep"
 alias editnv="nvim ~/.config/nvim"
 
 # Pure theme
-fpath+=$ZSH_CUSTOM/themes/pure
-autoload -U promptinit; promptinit
-prompt pure
+#source /opt/homebrew/Cellar/zsh-async/1.8.6/share/zsh/site-functions/async
+#autoload -U promptinit; promptinit
+#prompt pure
 
 # Path things
-export PATH=$PATH:/usr/local/go/bin
