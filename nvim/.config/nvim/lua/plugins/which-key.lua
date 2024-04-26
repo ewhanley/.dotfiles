@@ -30,6 +30,7 @@ return {
 				["<leader>m"] = { name = "[M]inifiles", _ = "which_key_ignore" },
 				["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
 				["<leader>p"] = { name = "[P]revious (netrw)", _ = "which_key_ignore" },
+				["<leader>h"] = { name = "[H]arpoon", _ = "which_key_ignore" },
 			})
 		end,
 	},

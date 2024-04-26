@@ -127,7 +127,7 @@ alias gh="history | grep"
 alias editnv="nvim ~/.config/nvim"
 
 # Pure theme
-fpath+=$ZSH_CUSTOM/themes/pure
+fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
 prompt pure
 
