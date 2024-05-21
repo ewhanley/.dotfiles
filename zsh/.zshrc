@@ -115,7 +115,7 @@ unset __mamba_setup
 export PATH="$PATH:/home/eric/.local/bin"
 
 # aliases
-alias python=python3
+alias python="python3"
 alias ll="lsd -Al"
 alias llt="lsd --tree -Al"
 alias ll.="lsd -d .*"
