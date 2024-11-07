@@ -28,4 +28,14 @@ end
 
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
+-- Specific settings for Typescript
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "typescript",
+	callback = function()
+		vim.bo.shiftwidth = 2
+		vim.bo.tabstop = 2
+		vim.bo.expandtab = true
+	end,
+})
+
 -- vim: ts=2 sts=2 sw=2 et
