@@ -1,16 +1,22 @@
--- Fancier statusline
+-- Fancier statusline (no external helpers)
 return {
 	"nvim-lualine/lualine.nvim",
-	config = function()
-		local colorscheme = require("helpers.colorscheme")
-		local lualine_theme = colorscheme == "default" and "auto" or colorscheme
-		require("lualine").setup({
-			options = {
-				icons_enabled = true,
-				theme = lualine_theme,
-				component_separators = "|",
-				section_separators = "",
-			},
-		})
-	end,
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	event = "VeryLazy",
+	opts = {
+		options = {
+			icons_enabled = true,
+			theme = "auto",
+			component_separators = "",
+			section_separators = "",
+		},
+		sections = {
+			lualine_a = { "mode" },
+			lualine_b = { "branch", "diff" },
+			lualine_c = { { "filename", path = 1 } },
+			lualine_x = { { "diagnostics", sources = { "nvim_lsp" } }, "encoding", "fileformat", "filetype" },
+			lualine_y = { "progress" },
+			lualine_z = { "location" },
+		},
+	},
 }

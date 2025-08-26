@@ -1,31 +1,32 @@
--- Git related plugins
+-- Git plugins: gitsigns always-on, Fugitive for :Git commands
 return {
 	{
 		"lewis6991/gitsigns.nvim",
-		opts = {},
+		event = "BufReadPre",
+		opts = {
+			signs = {
+				add = { text = "▎" },
+				change = { text = "▎" },
+				delete = { text = "" },
+				topdelete = { text = "" },
+				changedelete = { text = "▎" },
+			},
+			current_line_blame = false,
+			word_diff = false,
+			linehl = false,
+			numhl = false,
+		},
 	},
-	{
-		"akinsho/git-conflict.nvim",
-		commit = "2957f74",
-		config = function()
-			require("git-conflict").setup({
-				default_mappings = {
-					ours = "co",
-					theirs = "ct",
-					none = "c0",
-					both = "cb",
-					next = "cn",
-					prev = "cp",
-				},
-			})
-		end,
-	},
+
 	{
 		"tpope/vim-fugitive",
-		config = function ()
-			local map = require("helpers.keys").map
-			map("n", "<leader>ga", "<cmd>Git add %<cr>", "Stage the current file")
-			map("n", "<leader>gb", "<cmd>Git blame<cr>", "Show the blame")
-		end
-	}
+		cmd = { "Git", "G", "Gdiffsplit", "Gblame", "Gread", "Gwrite" },
+		keys = {
+			{ "<leader>gs", "<cmd>Git<cr>", desc = "Git status" },
+			{ "<leader>ga", "<cmd>Git add %<cr>", desc = "Stage current file" },
+			{ "<leader>gb", "<cmd>Git blame<cr>", desc = "Git blame (fugitive)" },
+			{ "<leader>gd", "<cmd>Gdiffsplit<cr>", desc = "Diff split (fugitive)" },
+			{ "<leader>gp", "<cmd>Git push<cr>", desc = "Git push" },
+		},
+	},
 }
