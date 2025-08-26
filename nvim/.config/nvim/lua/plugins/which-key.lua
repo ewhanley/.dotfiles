@@ -1,42 +1,25 @@
--- NOTE: Plugins can also be configured to run lua code when they are loaded.
---
--- This is often very useful to both group configuration, as well as handle
--- lazy loading plugins that don't need to be loaded immediately at startup.
---
--- For example, in the following configuration, we use:
---   event = 'VimEnter'
---
--- which loads which-key before all the UI elements are loaded. Events can be
--- normal autocommands events (`:help autocmd-events`).
---
--- Then, because we use the `config` key, the configuration only runs
--- after the plugin has been loaded:
--- config = function() ... end
-
 return {
-	{
-		-- Useful plugin to show you pending keybinds.
-		"folke/which-key.nvim",
-		event = "VimEnter", -- Sets the loading event to 'VimEnter'
-		config = function() -- This is the function that runs, AFTER loading
-			require("which-key").setup()
-
-			-- Clear old mappings
-			require("which-key").register({})
-
-			-- Document existing key chains with the suggested spec
-			require("which-key").register({
-				{ "", group = "[C]ode" },
-				{ "", group = "[P]revious (netrw)" },
-				{ "", group = "[G]it" },
-				{ "", group = "[S]earch" },
-				{ "", group = "[M]inifiles" },
-				{ "", group = "[R]ename" },
-				{ "", group = "[D]ocument" },
-				{ "", group = "[W]orkspace" },
-				{ "", desc = "", hidden = true, mode = { "n", "n", "n", "n", "n", "n", "n", "n" } },
-			})
-		end,
-	},
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      win = { border = "rounded" }, -- 'window' is deprecated
+      plugins = { spelling = true },
+    },
+    config = function(_, opts)
+      local wk = require("which-key")
+      wk.setup(opts)
+      wk.add({
+        { "<leader>f", group = "Find" },
+        { "<leader>g", group = "Git" },
+        { "<leader>l", group = "LSP" },
+        { "<leader>h", group = "Harpoon" },
+      })
+      wk.add({
+        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Files" },
+        { "<leader>fg", "<cmd>Telescope live_grep<cr>",  desc = "Live Grep" },
+        { "<leader>fb", "<cmd>Telescope buffers<cr>",    desc = "Buffers" },
+      })
+    end,
+  },
 }
--- vim: ts=2 sts=2 sw=2 et
