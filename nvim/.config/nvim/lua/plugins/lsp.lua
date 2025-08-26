@@ -15,6 +15,14 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- Configure LSP handlers for rounded borders (must be before LSP attach)
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				border = "rounded",
+			})
+			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+				border = "rounded",
+			})
+
 			-- Python: BasedPyright + Ruff
 			vim.lsp.config("basedpyright", {
 				settings = {
@@ -66,8 +74,12 @@ return {
 					map("n", "gt", vim.lsp.buf.type_definition, "Type Definition")
 
 					-- Documentation
-					map("n", "K", vim.lsp.buf.hover, "Hover Documentation")
-					map("n", "<leader>K", vim.lsp.buf.signature_help, "Signature Help")
+					map("n", "K", function()
+						vim.lsp.buf.hover({ border = "rounded" })
+					end, "Hover Documentation")
+					map("n", "<leader>K", function()
+						vim.lsp.buf.signature_help({ border = "rounded" })
+					end, "Signature Help")
 
 					-- Actions
 					map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
