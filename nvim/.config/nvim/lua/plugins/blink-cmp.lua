@@ -1,5 +1,6 @@
 return {
 	"saghen/blink.cmp",
+	build = "cargo +nightly build --release",
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 		{
@@ -17,8 +18,6 @@ return {
 			"giuxtaposition/blink-cmp-copilot",
 		},
 	},
-
-	version = "1.*",
 
 	opts = {
 		keymap = {
@@ -119,7 +118,7 @@ return {
 		},
 
 		fuzzy = {
-			implementation = "prefer_rust_with_warning",
+			implementation = "rust",
 		},
 	},
 

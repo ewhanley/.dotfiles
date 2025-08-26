@@ -9,6 +9,7 @@ return {
 		config = function()
 			-- Get blink.cmp capabilities
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
+			capabilities.offsetEncoding = { "utf-16" }
 
 			-- Global LSP settings
 			vim.lsp.config("*", {
@@ -185,3 +186,4 @@ return {
 		},
 	},
 }
+

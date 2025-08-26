@@ -36,7 +36,4 @@ opt.updatetime = 200
 opt.timeoutlen = 400
 opt.clipboard = "unnamedplus" -- Use system clipboard
 
--- Python specific
-vim.g.python3_host_prog = "python3" -- Use system python3
-
 -- vim: ts=2 sts=2 sw=2 et
