@@ -56,3 +56,4 @@ export NVM_DIR="$HOME/.nvm"
 if [ -f "$HOME/.env" ]; then
     source "$HOME/.env"
 fi
+
