@@ -32,11 +32,13 @@ return {
 				["g?"] = "actions.show_help",
 				["<CR>"] = "actions.select",
 				["<C-s>"] = "actions.select_vsplit",
-				["<C-h>"] = "actions.select_split",
+				["<C-h>"] = false,
+				["<C-j>"] = false,
+				["<C-k>"] = false,
 				["<C-t>"] = "actions.select_tab",
 				["<C-p>"] = "actions.preview",
 				["<C-c>"] = "actions.close",
-				["<C-l>"] = "actions.refresh",
+				["<C-l>"] = false,
 				["-"] = "actions.parent",
 				["_"] = "actions.open_cwd",
 				["`"] = "actions.cd",
@@ -104,3 +106,4 @@ return {
 		vim.keymap.set("n", "<leader>-", require("oil").toggle_float, { desc = "Open Oil in float" })
 	end,
 }
+

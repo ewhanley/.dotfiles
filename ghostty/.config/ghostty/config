@@ -2,8 +2,10 @@
 
 
 # font
-font-family = "MesloLGL Nerd Font Mono"
+#font-family = "FiraMono Nerd Font Mono"
+font-family = "MesloLGM Nerd Font Mono"
 font-size = 13
+font-feature = -liga
 
 
 theme = rose-pine
@@ -13,7 +15,7 @@ cursor-style = block
 
 background-opacity = 0.6
 background-blur = true
-
+macos-titlebar-style = hidden
 
 
 
