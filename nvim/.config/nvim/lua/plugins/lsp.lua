@@ -39,12 +39,12 @@ return {
 				},
 			})
 
-			-- Ruff for linting and formatting
+			-- Ruff for linting only (formatting handled by conform.nvim)
 			vim.lsp.config("ruff", {
 				init_options = {
 					settings = {
-						organizeImports = true,
-						fixAll = true,
+						organizeImports = false, -- Let conform handle this
+						fixAll = false, -- Let conform handle formatting
 					},
 				},
 			})
@@ -85,9 +85,7 @@ return {
 					-- Actions
 					map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
 					map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code Action")
-					map("n", "<leader>f", function()
-						require("conform").format({ async = true, lsp_fallback = true })
-					end, "Format")
+					-- Formatting handled by conform.nvim (<leader>lf)
 
 					-- Diagnostics
 					map("n", "[d", vim.diagnostic.goto_prev, "Previous Diagnostic")

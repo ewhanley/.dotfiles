@@ -1,1 +1,101 @@
-../.dotfiles/starship/.config/starship.toml
+# starship prompt — Rose Pine palette, Nerd Font symbols.
+# Reconstructed to match your ghostty (rose-pine) + MesloLG Nerd Font setup.
+# Docs: https://starship.rs/config/
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+palette = "rose-pine"
+
+format = """
+[](surface)\
+$os\
+$directory\
+[](fg:surface bg:overlay)\
+$git_branch\
+$git_status\
+[](fg:overlay bg:base)\
+$nodejs\
+$python\
+$rust\
+$golang\
+[](fg:base)\
+$fill\
+$cmd_duration\
+$line_break\
+$character"""
+
+[palettes.rose-pine]
+base    = "#191724"
+surface = "#1f1d2e"
+overlay = "#26233a"
+muted   = "#6e6a86"
+subtle  = "#908caa"
+text    = "#e0def4"
+love    = "#eb6f92"
+gold    = "#f6c177"
+rose    = "#ebbcba"
+pine    = "#31748f"
+foam    = "#9ccfd8"
+iris    = "#c4a7e7"
+
+[os]
+disabled = false
+style = "bg:surface fg:text"
+[os.symbols]
+Macos = " "
+
+[directory]
+style = "bg:surface fg:foam"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = " "
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music"     = " "
+"Pictures"  = " "
+"Developer" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:overlay fg:iris"
+format = "[ $symbol $branch ]($style)"
+
+[git_status]
+style = "bg:overlay fg:love"
+format = "[$all_status$ahead_behind ]($style)"
+
+[nodejs]
+symbol = ""
+style = "bg:base fg:foam"
+format = "[ $symbol ($version) ]($style)"
+
+[python]
+symbol = ""
+style = "bg:base fg:gold"
+format = "[ $symbol ($version) ]($style)"
+
+[rust]
+symbol = ""
+style = "bg:base fg:rose"
+format = "[ $symbol ($version) ]($style)"
+
+[golang]
+symbol = ""
+style = "bg:base fg:foam"
+format = "[ $symbol ($version) ]($style)"
+
+[fill]
+symbol = " "
+
+[cmd_duration]
+min_time = 2000
+style = "fg:muted"
+format = "[ $duration ]($style)"
+
+[character]
+success_symbol = "[❯](bold foam)"
+error_symbol = "[❯](bold love)"
+vimcmd_symbol = "[❮](bold iris)"

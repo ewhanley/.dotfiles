@@ -35,5 +35,9 @@ opt.mouse = "a"
 opt.updatetime = 200
 opt.timeoutlen = 400
 opt.clipboard = "unnamedplus" -- Use system clipboard
+opt.fixendofline = false -- Don't modify file endings (let formatter handle it)
+
+-- Show invisible characters (toggle with <leader>i)
+opt.listchars = { eol = "↲", trail = "·", tab = "→ " }
 
 -- vim: ts=2 sts=2 sw=2 et

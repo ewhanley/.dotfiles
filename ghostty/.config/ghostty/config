@@ -3,12 +3,15 @@
 
 # font
 #font-family = "FiraMono Nerd Font Mono"
-font-family = "MesloLGM Nerd Font Mono"
-font-size = 13
+#font-family = "Monaco"
+#font-family = "MesloLGM Nerd Font Mono"
+#font-family = "Andale Mono"
+font-family = "Hack Nerd Font Mono"
+font-size = 14
 font-feature = -liga
 
 
-theme = rose-pine
+theme = Rose Pine 
 
 
 cursor-style = block

@@ -14,3 +14,6 @@ map("n", "<esc>", "<cmd>nohlsearch<cr>", silent)
 map("n", "[d", vim.diagnostic.goto_prev, silent)
 map("n", "]d", vim.diagnostic.goto_next, silent)
 map("n", "<leader>e", vim.diagnostic.open_float, silent)
+
+-- Toggle invisible characters
+map("n", "<leader>i", "<cmd>set list!<cr>", { desc = "Toggle invisible characters", silent = true })
