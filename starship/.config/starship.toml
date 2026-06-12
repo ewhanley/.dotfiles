@@ -73,7 +73,7 @@ format = "[$all_status$ahead_behind ]($style)"
 ssh_only = true
 style_user = "bg:love fg:base"
 style_root = "bg:love fg:base"
-format = "[ $user ]($style)"
+format = "[ $user@]($style)"
 
 [hostname]
 ssh_only = true
