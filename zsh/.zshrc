@@ -46,7 +46,7 @@ bindkey -v
 eval "$(starship init zsh)"
 
 # Source Electio configuration
-source ~/.electio.zsh
+[ -f ~/.electio.zsh ] && source ~/.electio.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
