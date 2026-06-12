@@ -8,6 +8,8 @@ add_newline = true
 palette = "rose-pine"
 
 format = """
+$username\
+$hostname\
 [](surface)\
 $os\
 $directory\
@@ -66,6 +68,17 @@ format = "[ $symbol $branch ]($style)"
 [git_status]
 style = "bg:overlay fg:love"
 format = "[$all_status$ahead_behind ]($style)"
+
+[username]
+ssh_only = true
+style_user = "bg:love fg:base"
+style_root = "bg:love fg:base"
+format = "[ $user ]($style)"
+
+[hostname]
+ssh_only = true
+style = "bg:love fg:base"
+format = "[$hostname ]($style)[](fg:love bg:surface)"
 
 [nodejs]
 symbol = ""
